@@ -65,7 +65,27 @@ vim.opt.rtp:prepend(lazypath)
 --    as they will be available in your neovim runtime.
 require('lazy').setup({
   -- NOTE: First, some plugins that don't require any configuration
-
+  {
+    'folke/Trouble.nvim'
+  },
+  {
+    'kaarmu/typst.vim',
+    ft = 'typst',
+    lazy=false,
+  },
+  {'romgrk/barbar.nvim',
+    dependencies = {
+      'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
+      'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+    },
+    init = function() vim.g.barbar_auto_setup = false end,
+    opts = {
+      -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
+      -- animation = true,
+      -- insert_at_start = true,
+      -- …etc.
+    },
+  },
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
@@ -113,9 +133,14 @@ require('lazy').setup({
   },
 
   { -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
+    'olimorris/onedarkpro.nvim',
     priority = 1000,
     config = function()
+      require("onedarkpro").setup {
+        options = {
+          transparency = true
+        }
+      }
       vim.cmd.colorscheme 'onedark'
     end,
   },
