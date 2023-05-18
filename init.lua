@@ -1,5 +1,4 @@
 --[[
-
 =====================================================================
 ==================== READ THIS BEFORE CONTINUING ====================
 =====================================================================
@@ -138,7 +137,13 @@ require('lazy').setup({
     config = function()
       require("onedarkpro").setup {
         options = {
-          transparency = true
+          transparency = true,
+          highlights = {
+            ExtraWhitespace = {
+              ctermbg = "${red}",
+              guibg = "${red}"
+            }
+          }
         }
       }
       vim.cmd.colorscheme 'onedark'
@@ -517,7 +522,8 @@ cmp.setup {
 }
 
 -- Highlight extra whitespace so Stefan doesn't scream at me
-vim.cmd "highlight ExtraWhitespace ctermbg=red guibg=red"
+-- local colors = require("onedarkpro.helpers").get_colors()
+vim.cmd("highlight ExtraWhitespace ctermbg=red guibg=red")
 vim.cmd "match ExtraWhitespace /\\s\\+$/"
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
