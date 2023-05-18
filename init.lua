@@ -516,5 +516,8 @@ cmp.setup {
   },
 }
 
+-- Highlight extra whitespace so Stefan doesn't scream at me
+vim.cmd "highlight ExtraWhitespace ctermbg=red guibg=red"
+vim.cmd "match ExtraWhitespace /\\s\\+$/"
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
