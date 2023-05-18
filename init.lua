@@ -138,12 +138,6 @@ require('lazy').setup({
       require("onedarkpro").setup {
         options = {
           transparency = true,
-          highlights = {
-            ExtraWhitespace = {
-              ctermbg = "${red}",
-              guibg = "${red}"
-            }
-          }
         }
       }
       vim.cmd.colorscheme 'onedark'
