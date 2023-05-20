@@ -512,10 +512,6 @@ cmp.setup {
   },
 }
 
--- Setup default lengths
-vim.o.sw = 2
-vim.o.ts = 2
-vim.o.et = true
 vim.o["_has_set_default_indent_settings"] = true
 
 local dap = require('dap')
@@ -580,5 +576,14 @@ vim.keymap.set('n', '<Leader>ds', function()
   widgets.centered_float(widgets.scopes)
 end)
 
+-- Highlight extra whitespace so Stefan doesn't scream at me
+-- local colors = require("onedarkpro.helpers").get_colors()
+vim.cmd("highlight ExtraWhitespace ctermbg=red guibg=red")
+vim.cmd "match ExtraWhitespace /\\s\\+$/"
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
+if vim.filetype ~= "make" then
+  vim.o.expandtab = true
+end
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
