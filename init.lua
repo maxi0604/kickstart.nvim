@@ -519,5 +519,10 @@ cmp.setup {
 -- local colors = require("onedarkpro.helpers").get_colors()
 vim.cmd("highlight ExtraWhitespace ctermbg=red guibg=red")
 vim.cmd "match ExtraWhitespace /\\s\\+$/"
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
+if vim.filetype ~= "make" then
+  vim.o.expandtab = true
+end
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
